@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { NAVBAR_LIST } from "@/utils/helper";
 import CustomButton from "./CustomButton";
+import { NAVBAR_LIST } from "@/utils/helper";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);

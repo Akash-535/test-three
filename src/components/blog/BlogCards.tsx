@@ -1,10 +1,10 @@
 "use client";
-import { ARTICLES_CARD_LIST } from "@/utils/helper";
 import { NextArrowIcon, SearchIcon } from "@/utils/Icons";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import CustomButton from "../common/CustomButton";
 import { useSearchParams } from "next/navigation";
+import { ARTICLES_CARD_LIST } from "@/utils/helper";
 
 const BlogCards = () => {
   const [open, setOpen] = useState(3);
@@ -24,11 +24,11 @@ const BlogCards = () => {
   const handleShowMore = () => {
     const nextPage = open < ARTICLES_CARD_LIST.length ? open / 3 + 1 : 1;
     setOpen(nextPage * 3);
-    window.history.pushState(null, "", `?page=${nextPage}`);
+    window.history.pushState(null, "", `blogs?page=${nextPage}`);
   };
 
   return (
-    <div className="pt-[30px] container mx-auto pb-[180px]">
+    <div className="pt-[30px] container mx-auto pb-[180px] px-4 max-xl:pb-36 max-lg:pb-20 max-md:pb-12">
       <div className="flex items-center justify-start py-[17px] pl-[30px] gap-2.5 border border-white border-opacity-25 max-w-[558px] mx-auto rounded-full">
         <label htmlFor="search" className="cursor-pointer">
           <SearchIcon />
@@ -41,11 +41,11 @@ const BlogCards = () => {
           className="bg-transparent outline-none placeholder:text-white placeholder:opacity-80 text-white opacity-80 placeholder:leading-6 leading-6"
         />
       </div>
-      <div className="flex flex-wrap gap-6 max-w-[1140px] mx-auto justify-center w-full pt-[70px] max-xl:gap-2">
+      <div className="flex flex-wrap gap-6 max-xl:gap-y-20 max-lg:gap-y-5 max-w-[1140px] mx-auto justify-center w-full pt-[70px] max-xl:gap-2 max-lg:pt-14 max-md:pt-9">
         {allCard.map((obj, i) => (
           <div
             key={i}
-            className="relative w-4/12 max-w-[364px] mx-auto border border-custom-skyblue rounded-[10px] bg-white bg-opacity-[0.03] pb-10 overflow-hidden"
+            className="relative w-4/12 max-xl:w-6/12 max-md:w-full max-w-[364px] mx-auto border border-custom-skyblue rounded-[10px] bg-white bg-opacity-[0.03] pb-10 overflow-hidden"
           >
             <div className="max-w-[364px] overflow-hidden h-[237px]">
               <Image
@@ -98,7 +98,7 @@ const BlogCards = () => {
       <div className="flex justify-center items-center pt-10">
         <CustomButton
           myOnclick={handleShowMore}
-          myClass="py-[15px] px-6 border rounded-full bg-custom-skyblue text-center"
+          myClass="py-[15px] px-6 border rounded-full bg-custom-skyblue text-center hover:text-custom-skyblue hover:bg-transparent"
           text={
             open < ARTICLES_CARD_LIST.length
               ? "Show all blogs"

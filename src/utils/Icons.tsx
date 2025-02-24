@@ -176,3 +176,19 @@ export const LinkedInIcon = () => (
     </defs>
   </svg>
 );
+
+export const SwiperArrowIcon = () => (
+  <svg
+    width="33"
+    height="30"
+    viewBox="0 0 33 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 14.9999H30M30 14.9999L16.5 1.49988M30 14.9999L16.5 28.4999"
+      stroke="#292929"
+      strokeWidth="3"
+    />
+  </svg>
+);
