@@ -2,23 +2,29 @@
 import { ARTICLES_CARD_LIST } from "@/utils/helper";
 import { NextArrowIcon, SearchIcon } from "@/utils/Icons";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CustomButton from "../common/CustomButton";
+import { useSearchParams } from "next/navigation";
 
 const BlogCards = () => {
   const [open, setOpen] = useState(3);
   const [search, setSearch] = useState("");
+  const searchParams = useSearchParams();
 
+  useEffect(() => {
+    const param = searchParams.get("page");
+    if (param) {
+      setOpen(parseInt(param) * 3);
+    }
+  }, [searchParams]);
   const allCard = ARTICLES_CARD_LIST.slice(0, open).filter(
     (obj) => obj.title && obj.title.toLowerCase().includes(search.toLowerCase())
   );
 
   const handleShowMore = () => {
-    if (open < ARTICLES_CARD_LIST.length) {
-      setOpen(open + 3);
-    } else {
-      setOpen(3);
-    }
+    const nextPage = open < ARTICLES_CARD_LIST.length ? open / 3 + 1 : 1;
+    setOpen(nextPage * 3);
+    window.history.pushState(null, "", `?page=${nextPage}`);
   };
 
   return (
