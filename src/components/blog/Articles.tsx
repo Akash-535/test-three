@@ -30,7 +30,7 @@ const Articles = () => {
         </p>
       </div>
       <BlogCards />
-      <LatestArtical />
+      <LatestArtical headingText="Latest" spanText="Articles" />
       <Footer />
     </div>
   );

@@ -1,13 +1,16 @@
 "use client";
-import { NextArrowIcon, SearchIcon } from "@/utils/Icons";
-import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 import CustomButton from "../common/CustomButton";
 import { useSearchParams } from "next/navigation";
 import { ARTICLES_CARD_LIST } from "@/utils/helper";
+import Link from "next/link";
+import CommonCard from "../common/CommonCard";
+import { SearchIcon } from "@/utils/Icons";
 
 const BlogCards = () => {
-  const [open, setOpen] = useState(3);
+  const [open, setOpen] = useState(6);
   const [search, setSearch] = useState("");
   const searchParams = useSearchParams();
 
@@ -17,14 +20,19 @@ const BlogCards = () => {
       setOpen(parseInt(param) * 3);
     }
   }, [searchParams]);
+
   const allCard = ARTICLES_CARD_LIST.slice(0, open).filter(
     (obj) => obj.title && obj.title.toLowerCase().includes(search.toLowerCase())
   );
 
   const handleShowMore = () => {
-    const nextPage = open < ARTICLES_CARD_LIST.length ? open / 3 + 1 : 1;
+    const nextPage = open < ARTICLES_CARD_LIST.length ? open / 3 + 1 : 2;
     setOpen(nextPage * 3);
+    NProgress.start();
     window.history.pushState(null, "", `blogs?page=${nextPage}`);
+    setTimeout(() => {
+      NProgress.done();
+    }, 400);
   };
 
   return (
@@ -43,56 +51,21 @@ const BlogCards = () => {
       </div>
       <div className="flex flex-wrap gap-6 max-xl:gap-y-20 max-lg:gap-y-5 max-w-[1140px] mx-auto justify-center w-full pt-[70px] max-xl:gap-2 max-lg:pt-14 max-md:pt-9">
         {allCard.map((obj, i) => (
-          <div
+          <Link
             key={i}
-            className="relative w-4/12 max-xl:w-6/12 max-md:w-full max-w-[364px] mx-auto border border-custom-skyblue rounded-[10px] bg-white bg-opacity-[0.03] pb-10 overflow-hidden"
+            href={`/blogs/${obj.title.toLowerCase().replace(/\s/g, "-")}`}
           >
-            <div className="max-w-[364px] overflow-hidden h-[237px]">
-              <Image
-                width={364}
-                height={237}
-                className="max-w-[364px] object-cover hover:scale-110 duration-300 ease-linear"
-                src={obj.image}
-                alt="article image"
-              />
-            </div>
-            <p className="absolute top-5 right-8 text-white text-base font-semibold leading-6">
-              {obj.date}
-            </p>
-            <div className="px-5">
-              <div className="w-full gap-6 flex items-center justify-center -mt-6 relative z-10">
-                <CustomButton
-                  text="Productivity"
-                  myClass="py-[7px] px-[34.875px] bg-custom-black text-white shadow-none hover:text-custom-black hover:bg-white rounded-full text-sm leading-[21px] min-w-[154px]"
-                />
-                <CustomButton
-                  text={obj.timeReamining}
-                  myClass="py-[7px] px-[34.875px] bg-custom-light-gray text-white shadow-none rounded-full text-sm leading-[21px] border-white min-w-[154px] hover:bg-white hover:text-custom-light-gray"
-                />
-              </div>
-              <h2 className="text-white pt-6 pb-2.5 text-xl font-semibold leading-[24.4px]">
-                {obj.title}
-              </h2>
-              <p className="text-white opacity-70 max-w-[323px] pb-6 text-base leading-6">
-                {obj.description}
-              </p>
-              <div className="w-full flex justify-between items-center">
-                <div className="flex items-center gap-2.5">
-                  <Image
-                    width={50}
-                    height={50}
-                    className="max-w-[50px] object-cover"
-                    src={obj.authorImg}
-                    alt="author image"
-                  />
-                  <p className="text-white text-base font-semibold">
-                    {obj.authorName}
-                  </p>
-                </div>
-                <NextArrowIcon />
-              </div>
-            </div>
-          </div>
+            <CommonCard
+              image={obj.image}
+              date={obj.date}
+              title={obj.title}
+              description={obj.description}
+              buttonOne="Productivity"
+              buttonTwo={obj.timeReamining}
+              authorImg={obj.authorImg}
+              authorName={obj.authorName}
+            />
+          </Link>
         ))}
       </div>
       <div className="flex justify-center items-center pt-10">

@@ -9,13 +9,16 @@ import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import { Navigation } from "swiper/modules";
 import { ARTICLES_CARD_LIST } from "@/utils/helper";
-
-const LatestArtical = () => {
+interface headingData {
+  headingText?: string;
+  spanText?: string;
+}
+const LatestArtical = ({ headingText, spanText }: headingData) => {
   return (
     <div className="w-full relative pb-[180px] px-4 max-xl:pb-36 max-lg:pb-20 max-md:pb-12">
       <h2 className="text-5xl font-normal leading-[58px] text-center text-white pb-[70px]">
-        Latest{" "}
-        <span className="text-custom-skyblue font-semibold">Articles</span>
+        {headingText}{" "}
+        <span className="text-custom-skyblue font-semibold">{spanText}</span>
       </h2>
       <div
         className="absolute top-1/2 -translate-y-1/2 right-10 bg-custom-skyblue border border-transparent hover:border-custom-skyblue hover:bg-transparent size-[60px] flex items-center justify-center cursor-pointer duration-300 ease-linear next-arrow
