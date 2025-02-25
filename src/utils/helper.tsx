@@ -10,6 +10,7 @@ import {
 interface NavbarList {
   title: string;
   link: string;
+  dropDown?: NavbarList[];
 }
 
 interface TopbarList {
@@ -64,6 +65,10 @@ export const NAVBAR_LIST: NavbarList[] = [
   {
     title: "Promotions",
     link: "#",
+    dropDown: [
+      { title: "Promotion 1", link: "#promotion1" },
+      { title: "Promotion 2", link: "#promotion2" },
+    ],
   },
   {
     title: "Arrowtrade",

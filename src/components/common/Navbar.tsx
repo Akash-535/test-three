@@ -4,8 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import CustomButton from "./CustomButton";
 import { NAVBAR_LIST } from "@/utils/helper";
+import { DropDownIcon } from "@/utils/Icons";
 
 const Navbar = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<Number | null>(4);
   const activeHandler = (index: number) => {
@@ -15,7 +17,9 @@ const Navbar = () => {
     document.body.style.overflow = open ? "hidden" : "auto";
   }, [open]);
   return (
-    <div className={`px-4 pt-4 max-sm:py-3 shadow-header-shadow`}>
+    <div
+      className={`px-4 pt-4 max-sm:py-3 shadow-header-shadow overflow-hidden`}
+    >
       <div
         className={`max-w-[1220px] mx-auto flex justify-between items-center w-full py-4 bg-white bg-opacity-10 rounded-full pr-10 pl-[88px] border border-white border-opacity-15 max-lg:pl-12 backdrop-filter lg:backdrop-blur-[24px] ${
           !open && "max-lg:backdrop-blur-[24px]"
@@ -39,20 +43,44 @@ const Navbar = () => {
             <div key={i} className=" cursor-pointer">
               <Link
                 href={obj.link}
+                onMouseEnter={() => obj.dropDown && setDropdownOpen(true)}
+                onMouseLeave={() => obj.dropDown && setDropdownOpen(false)}
                 onClick={() => {
                   {
                     setOpen(!open);
                   }
                   activeHandler(i);
                 }}
-                className={`cursor-pointer text-base leading-[19.36px] duration-300 ease-linear opacity-70 ${
+                className={`cursor-pointer text-base leading-[19.36px] duration-300 ease-linear opacity-70 font-normal flex items-center ${
                   active === i
-                    ? "text-custom-skyblue font-bold opacity-100"
-                    : "text-white font-normal"
+                    ? "text-custom-skyblue opacity-100"
+                    : "text-white"
                 }`}
               >
                 {obj.title}
+                {obj.dropDown && (
+                  <span className="ml-1">
+                    <DropDownIcon />
+                  </span>
+                )}
               </Link>
+              {obj.dropDown && dropdownOpen && (
+                <div
+                  className="absolute bg-white shadow-lg rounded"
+                  onMouseEnter={() => setDropdownOpen(true)}
+                  onMouseLeave={() => setDropdownOpen(false)}
+                >
+                  {obj.dropDown.map((val, idx) => (
+                    <Link
+                      key={idx}
+                      href={val.link}
+                      className="block px-4 py-2 hover:bg-gray-200"
+                    >
+                      {val.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
           <div className="flex flex-col gap-6 items-center">

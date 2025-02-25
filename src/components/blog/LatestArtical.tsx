@@ -16,7 +16,7 @@ interface headingData {
 const LatestArtical = ({ headingText, spanText }: headingData) => {
   return (
     <div className="w-full relative pb-[180px] px-4 max-xl:pb-36 max-lg:pb-20 max-md:pb-12">
-      <h2 className="text-5xl font-normal leading-[58px] text-center text-white pb-[70px]">
+      <h2 className="text-5xl font-normal leading-[58px] text-center text-white pb-[70px] max-lg:text-3xl max-md:text-2xl max-xl:pb-16 max-lg:pb-11 max-md:pb-7">
         {headingText}{" "}
         <span className="text-custom-skyblue font-semibold">{spanText}</span>
       </h2>
@@ -33,7 +33,6 @@ const LatestArtical = ({ headingText, spanText }: headingData) => {
         <SwiperArrowIcon />
       </div>
       <Swiper
-        // slidesPerView={}
         loop={true}
         modules={[Navigation]}
         navigation={{
@@ -75,7 +74,7 @@ const LatestArtical = ({ headingText, spanText }: headingData) => {
               {obj.date}
             </p>
             <div className="px-5">
-              <div className="w-full gap-6 flex items-center justify-center -mt-6 relative z-10 max-md:gap-3">
+              <div className="w-full gap-6 flex items-center justify-center -mt-6 relative z-10 max-md:gap-3 max-sm:gap-2">
                 <CustomButton
                   text="Productivity"
                   myClass="py-[7px] px-[34.875px] bg-custom-black text-white shadow-none hover:text-custom-black hover:bg-white rounded-full text-sm leading-[21px] min-w-[154px] max-md:min-w-[140px]"

@@ -45,7 +45,7 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        <div className="flex pt-12 items-center gap-6">
+        <div className="flex pt-12 items-center gap-6 flex-wrap">
           {MEDIA_ICON_LIST.map((obj, i) => (
             <Link
               key={i}
