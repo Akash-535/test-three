@@ -26,6 +26,7 @@ interface ArticleCardList {
   authorImg: string;
   authorName: string;
   timeReamining: string;
+  isFeatured: boolean;
 }
 
 interface FooterLink {
@@ -117,6 +118,7 @@ export const ARTICLES_CARD_LIST: ArticleCardList[] = [
       "Stay ahead with AI-driven analytics, real-time news updates, and expert market research to make informed decisions.",
     authorImg: "/assets/images/darrell-img.webp",
     authorName: "Darrell Steward",
+    isFeatured: true,
   },
   {
     image: "/assets/images/advance-trading-img.webp",
@@ -127,6 +129,7 @@ export const ARTICLES_CARD_LIST: ArticleCardList[] = [
       "Experience lightning-fast execution, customizable charts, and an intuitive interface designed for traders of all levels.",
     authorImg: "/assets/images/jerome-img.webp",
     authorName: "Jerome Bell",
+    isFeatured: true,
   },
   {
     image: "/assets/images/mastering-img.webp",
@@ -137,6 +140,7 @@ export const ARTICLES_CARD_LIST: ArticleCardList[] = [
       "Mastering the markets involves developing a comprehensive understanding of how financial markets work, creating.",
     authorImg: "/assets/images/eleanor-img.webp",
     authorName: "Eleanor Pena",
+    isFeatured: true,
   },
   {
     image: "/assets/images/risk-management-img.webp",
@@ -147,6 +151,7 @@ export const ARTICLES_CARD_LIST: ArticleCardList[] = [
       "Risk management is a critical component of successful trading. without effective risk management strategies, traders.",
     authorImg: "/assets/images/leslie-img.webp",
     authorName: "Leslie Alexander",
+    isFeatured: true,
   },
   {
     image: "/assets/images/building-portfoliyo-img.webp",
@@ -157,6 +162,7 @@ export const ARTICLES_CARD_LIST: ArticleCardList[] = [
       "Building a diversified portfolio is an essential strategy for managing risk while aiming for steady returns over time.",
     authorImg: "/assets/images/wade-img.webp",
     authorName: "Wade Warren",
+    isFeatured: true,
   },
   {
     image: "/assets/images/psychology-trading-img.webp",
@@ -167,6 +173,7 @@ export const ARTICLES_CARD_LIST: ArticleCardList[] = [
       "Trading isn’t just about numbers, charts, and market analysis—it’s also a game of emotions and psychology.",
     authorImg: "/assets/images/kristin-waston.webp",
     authorName: "Kristin Watson",
+    isFeatured: true,
   },
   {
     image: "/assets/images/developing-trading-img.webp",
@@ -177,6 +184,7 @@ export const ARTICLES_CARD_LIST: ArticleCardList[] = [
       "Identify trends (up, down, sideways) and develop strategies that capitalize on the direction of the market.",
     authorImg: "/assets/images/hawkins-img.webp",
     authorName: "Guy Hawkins",
+    isFeatured: false,
   },
   {
     image: "/assets/images/security-img.webp",
@@ -187,6 +195,7 @@ export const ARTICLES_CARD_LIST: ArticleCardList[] = [
       "Your investments are safe with robust encryption, multi-layer authentication, and secure transaction processing.",
     authorImg: "/assets/images/jacob-img.webp",
     authorName: "Jacob Jones",
+    isFeatured: false,
   },
   {
     image: "/assets/images/mobile-trading-img.webp",
@@ -197,6 +206,7 @@ export const ARTICLES_CARD_LIST: ArticleCardList[] = [
       "Access your portfolio and trade on the go with a powerful mobile app designed for performance and ease of use.",
     authorImg: "/assets/images/courtney-img.webp",
     authorName: "Courtney Henry",
+    isFeatured: false,
   },
   {
     image: "/assets/images/mastering-img.webp",
@@ -207,6 +217,7 @@ export const ARTICLES_CARD_LIST: ArticleCardList[] = [
       "Mastering the markets involves developing a comprehensive understanding of how financial markets work, creating.",
     authorImg: "/assets/images/eleanor-img.webp",
     authorName: "Eleanor Pena",
+    isFeatured: false,
   },
   {
     image: "/assets/images/risk-management-img.webp",
@@ -217,6 +228,7 @@ export const ARTICLES_CARD_LIST: ArticleCardList[] = [
       "Risk management is a critical component of successful trading. without effective risk management strategies, traders.",
     authorImg: "/assets/images/leslie-img.webp",
     authorName: "Leslie Alexander",
+    isFeatured: false,
   },
   {
     image: "/assets/images/building-portfoliyo-img.webp",
@@ -227,6 +239,7 @@ export const ARTICLES_CARD_LIST: ArticleCardList[] = [
       "Building a diversified portfolio is an essential strategy for managing risk while aiming for steady returns over time.",
     authorImg: "/assets/images/wade-img.webp",
     authorName: "Wade Warren",
+    isFeatured: false,
   },
 ];
 

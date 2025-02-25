@@ -19,7 +19,7 @@ const Articles = () => {
         alt="hero layer"
       />
       <div className="px-4">
-        <h1 className="text-[64px] text-white text-center max-w-[718px] mx-auto pt-[70px] pb-4 leading-[77.56px] max-lg:text-5xl max-md:text-3xl">
+        <h1 className="text-[64px] text-white text-center max-w-[718px] mx-auto pt-[70px] pb-4 leading-[77.56px] max-lg:text-5xl max-md:text-3xl max-xl:pt-16 max-lg:pt-12 max-md:pt-8 max-md:pt-5">
           Unlock Knowledge with Our{" "}
           <span className="text-custom-skyblue">Featured Articles</span>
         </h1>

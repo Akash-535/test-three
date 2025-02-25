@@ -26,6 +26,7 @@ const BlogCards = () => {
   );
 
   const handleShowMore = () => {
+    ARTICLES_CARD_LIST.filter((card) => !card.isFeatured);
     const nextPage = open < ARTICLES_CARD_LIST.length ? open / 3 + 1 : 2;
     setOpen(nextPage * 3);
     NProgress.start();

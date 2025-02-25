@@ -30,7 +30,7 @@ const CommonCard = ({
         <Image
           width={364}
           height={237}
-          className="max-w-[364px] object-cover hover:scale-110 duration-300 ease-linear"
+          className="max-w-[364px] object-cover hover:scale-110 duration-300 ease-linear pointer-events-none"
           src={image}
           alt="article image"
         />
