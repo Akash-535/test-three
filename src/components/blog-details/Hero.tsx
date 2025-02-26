@@ -19,7 +19,9 @@ const Hero = () => {
   }, 400);
   const blogArray = ARTICLES_CARD_LIST.filter(
     (obj) =>
-      obj && obj.title && obj.title.toLowerCase().replace(/\s+/g, "-") === slug
+      obj &&
+      obj.title &&
+      obj.title.toLowerCase().replace(/\s+/g, "-").replace("&", "%26") === slug
   );
 
   const newBlogs: any = blogArray.length ? blogArray[0] : null;

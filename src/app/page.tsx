@@ -8,7 +8,7 @@ export default function Home() {
       </h2>
       <Link
         href="/blogs/"
-        className="py-3 px-6 border border-custom-skyblue rounded-lg text-white flex justify-center items-center max-w-60 mx-auto mt-10 hover:text-custom-skyblue hover:bg-white font-bold duration-300 ease-linear"
+        className="py-3 px-6 border border-custom-skyblue rounded-lg text-white flex justify-center items-center max-w-60 mx-auto mt-10 hover:text-custom-skyblue hover:bg-black font-bold duration-300 ease-linear"
       >
         Go to blogs
       </Link>

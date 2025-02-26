@@ -59,7 +59,7 @@ const LatestArtical = ({ headingText, spanText }: headingData) => {
           }}
           className="flex gap-6 overflow-hidden w-full max-w-[1140px] mx-auto justify-center items-center mySwiper"
         >
-          {ARTICLES_CARD_LIST.map((obj, i) => (
+          {blogCard.map((obj, i) => (
             <SwiperSlide
               key={i}
               className="relative w-4/12 max-w-[364px] mx-auto border border-custom-skyblue rounded-[10px] bg-white bg-opacity-[0.03] pb-10 overflow-hidden whitespace-nowrap"

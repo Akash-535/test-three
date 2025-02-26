@@ -26,7 +26,6 @@ const BlogCards = () => {
   );
 
   const handleShowMore = () => {
-    ARTICLES_CARD_LIST.filter((card) => !card.isFeatured);
     const nextPage = open < ARTICLES_CARD_LIST.length ? open / 3 + 1 : 2;
     setOpen(nextPage * 3);
     NProgress.start();
@@ -72,7 +71,9 @@ const BlogCards = () => {
       <div className="flex justify-center items-center pt-10">
         <CustomButton
           myOnclick={handleShowMore}
-          myClass="py-[15px] px-6 border rounded-full bg-custom-skyblue text-center hover:text-custom-skyblue hover:bg-transparent"
+          myClass={`py-[15px] px-6 border rounded-full bg-custom-skyblue text-center hover:text-custom-skyblue hover:bg-transparent ${
+            ARTICLES_CARD_LIST.length <= 0 && "hidden"
+          }`}
           text={
             open < ARTICLES_CARD_LIST.length
               ? "Show all blogs"

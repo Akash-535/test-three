@@ -42,14 +42,17 @@ const Navbar = () => {
           {NAVBAR_LIST.map((obj, i) => (
             <div key={i} className=" cursor-pointer">
               <Link
-                href={obj.link}
+                href={`${i === 4 ? "/blogs" : obj.link}`}
                 onMouseEnter={() => obj.dropDown && setDropdownOpen(true)}
                 onMouseLeave={() => obj.dropDown && setDropdownOpen(false)}
                 onClick={() => {
                   {
                     setOpen(!open);
                   }
-                  activeHandler(i);
+                  {
+                    activeHandler(i);
+                  }
+                  setDropdownOpen(!dropdownOpen);
                 }}
                 className={`cursor-pointer text-base leading-[19.36px] duration-300 ease-linear opacity-70 font-normal flex items-center ${
                   active === i
@@ -69,6 +72,7 @@ const Navbar = () => {
                   className="absolute bg-white shadow-lg rounded"
                   onMouseEnter={() => setDropdownOpen(true)}
                   onMouseLeave={() => setDropdownOpen(false)}
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
                 >
                   {obj.dropDown.map((val, idx) => (
                     <Link
