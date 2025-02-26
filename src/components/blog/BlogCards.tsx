@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import NProgress from "nprogress";
+import nProgress from "nprogress";
 import "nprogress/nprogress.css";
 import CustomButton from "../common/CustomButton";
 import { useSearchParams } from "next/navigation";
@@ -28,10 +28,10 @@ const BlogCards = () => {
   const handleShowMore = () => {
     const nextPage = open < ARTICLES_CARD_LIST.length ? open / 3 + 1 : 2;
     setOpen(nextPage * 3);
-    NProgress.start();
+    nProgress.start();
     window.history.pushState(null, "", `blogs?page=${nextPage}`);
     setTimeout(() => {
-      NProgress.done();
+      nProgress.done();
     }, 400);
   };
 

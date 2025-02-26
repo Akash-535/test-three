@@ -9,13 +9,13 @@ import TopBar from "../common/TopBar";
 import MarketInsights from "./MarketInsights";
 import LatestArtical from "../blog/LatestArtical";
 import CustomButton from "../common/CustomButton";
-import NProgress from "nprogress";
+import nProgress from "nprogress";
 
 const Hero = () => {
   const { slug } = useParams();
-  NProgress.start();
+  nProgress.start();
   setTimeout(() => {
-    NProgress.done();
+    nProgress.done();
   }, 400);
   const blogArray = ARTICLES_CARD_LIST.filter(
     (obj) =>
@@ -27,9 +27,23 @@ const Hero = () => {
   const newBlogs: any = blogArray.length ? blogArray[0] : null;
 
   return (
-    <div>
+    <div className="relative">
       <TopBar />
       <Navbar />
+      <Image
+        width={237.32}
+        height={237.32}
+        className="absolute left-0 top-16"
+        src="/assets/images/hero-top-layer.webp"
+        alt="hero layer"
+      />
+      <Image
+        width={237.32}
+        height={237.32}
+        className="absolute left-0 top-1/3 rotate-180"
+        src="/assets/images/skyblue-layer.webp"
+        alt="hero layer"
+      />
       {newBlogs ? (
         <div>
           <div className="max-w-[1440px] mx-auto relative px-5">
@@ -70,8 +84,8 @@ const Hero = () => {
           <Footer />
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-          <h1 className="text-9xl font-bold text-white">404</h1>
+        <div className="flex flex-col items-center justify-center h-screen">
+          <h1 className="text-9xl font-bold text-red-400">404</h1>
           <h2 className="text-4xl font-semibold text-white mt-4">
             Page Not Found
           </h2>

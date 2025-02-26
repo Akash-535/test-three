@@ -18,6 +18,13 @@ const Articles = () => {
         src="/assets/images/hero-top-layer.webp"
         alt="hero layer"
       />
+      <Image
+        width={237.32}
+        height={237.32}
+        className="absolute right-0 top-1/4"
+        src="/assets/images/skyblue-layer.webp"
+        alt="hero layer"
+      />
       <div className="px-4">
         <h1 className="text-[64px] text-white text-center max-w-[718px] mx-auto pt-[70px] pb-4 leading-[77.56px] max-lg:text-5xl max-md:text-3xl max-xl:pt-16 max-lg:pt-12 max-md:pt-8 max-sm:pt-5">
           Unlock Knowledge with Our{" "}
