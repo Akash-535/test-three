@@ -1,8 +1,22 @@
-import { CHANGING_GAME_LIST, MARKET_INSIGHTS_LIST } from "@/utils/helper";
+import {
+  ARTICLES_CARD_LIST,
+  CHANGING_GAME_LIST,
+  MARKET_INSIGHTS_LIST,
+} from "@/utils/helper";
 import Image from "next/image";
+import { useParams } from "next/navigation";
 import React from "react";
 
 const MarketInsights = () => {
+  const { slug } = useParams();
+  const blogArray = ARTICLES_CARD_LIST.filter(
+    (obj) =>
+      obj &&
+      obj.title &&
+      obj.title.toLowerCase().replace(/\s+/g, "-").replace("&", "%26") === slug
+  );
+
+  const newBlogs: any = blogArray.length ? blogArray[0] : null;
   return (
     <div className="pb-[190px] relative max-xl:pb-40 max-lg:pb-32 max-md:pb-24 max-sm:pb-16">
       <div className="flex relative container mx-auto w-full justify-between">
@@ -76,10 +90,10 @@ const MarketInsights = () => {
               width={50}
               height={50}
               className="object-cover max-w-[50px]"
-              src="/assets/images/darrell-img.webp"
+              src={newBlogs.authorImg}
               alt="darell image"
             />
-            <p className="text-white font-semibold">Darrell Steward</p>
+            <p className="text-white font-semibold">{newBlogs.authorName}</p>
           </div>
           <h4 className="text-white font-semibold leading-[19px] pt-6 px-5">
             What are AI-Driven Market Insights?

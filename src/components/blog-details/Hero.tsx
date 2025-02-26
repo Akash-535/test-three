@@ -55,7 +55,9 @@ const Hero = () => {
                     Market Insights
                   </span>
                 </h2>
-
+                <p className="text-white opacity-70 pt-4">
+                  {newBlogs.description}
+                </p>
                 <div className="gap-4 items-center flex pt-[30px] flex-wrap-reverse justify-center">
                   <CustomButton
                     text="Productivity"

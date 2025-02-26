@@ -52,7 +52,6 @@ const Navbar = () => {
                   {
                     activeHandler(i);
                   }
-                  setDropdownOpen(!dropdownOpen);
                 }}
                 className={`cursor-pointer text-base leading-[19.36px] duration-300 ease-linear opacity-70 font-normal flex items-center ${
                   active === i
