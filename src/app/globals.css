@@ -7,19 +7,6 @@ body {
   font-family: "Inter", serif;
   background-color: #070508;
 }
-
-.bar-animation {
-  animation: top-bar 20s linear infinite forwards;
-}
-@keyframes top-bar {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
 ::-webkit-scrollbar {
   width: 0;
 }
