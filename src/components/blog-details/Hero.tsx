@@ -44,6 +44,13 @@ const Hero = () => {
         src="/assets/images/skyblue-layer.webp"
         alt="hero layer"
       />
+      <Image
+        width={237.32}
+        height={237.32}
+        className="absolute right-0 top-[18%]"
+        src="/assets/images/skyblue-layer.webp"
+        alt="hero layer"
+      />
       {newBlogs ? (
         <div>
           <div className="max-w-[1440px] mx-auto relative px-5">
@@ -58,7 +65,7 @@ const Hero = () => {
                 <p className="text-white opacity-70 pt-4">
                   {newBlogs.description}
                 </p>
-                <div className="gap-4 items-center flex pt-[30px] flex-wrap-reverse justify-center">
+                <div className="gap-4 items-center flex pt-[30px] flex-wrap-reverse justify-start">
                   <CustomButton
                     text="Productivity"
                     myClass="py-[7px] px-[34.875px] bg-custom-black text-white shadow-none hover:text-custom-black hover:bg-white rounded-full text-sm leading-[21px] min-w-[154px]"

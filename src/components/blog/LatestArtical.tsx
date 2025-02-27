@@ -22,19 +22,19 @@ const LatestArtical = ({ headingText, spanText }: headingData) => {
         <span className="text-custom-skyblue font-semibold">{spanText}</span>
       </h2>
       <div
-        className="absolute top-1/2 max-xl:bottom-[8%] max-xl:right-[42%] max-md:right-[36%] max-md:bottom-[3%] max-xl:top-auto max-xl:-translate-y-0 -translate-y-1/2 right-10 bg-custom-skyblue border border-transparent hover:border-custom-skyblue hover:bg-transparent size-[60px] max-lg:size-11 flex items-center justify-center cursor-pointer duration-300 ease-linear next-arrow
-       rounded-full"
+        className={`absolute top-1/2 max-xl:bottom-[8%] max-xl:right-[42%] max-md:right-[36%] max-md:bottom-[3%] max-xl:top-auto max-xl:-translate-y-0 -translate-y-1/2 right-10 bg-custom-skyblue border border-transparent hover:border-custom-skyblue hover:bg-transparent size-[60px] max-lg:size-11 flex items-center justify-center cursor-pointer duration-300 ease-linear next-arrow
+       rounded-full ${blogCard.length <= 0 ? "hidden" : ""}`}
       >
         <SwiperArrowIcon />
       </div>
       <div
-        className="absolute top-1/2 max-xl:bottom-[8%] max-xl:left-[42%] max-md:bottom-[3%] max-md:left-[36%] max-xl:top-auto max-xl:-translate-y-0 -translate-y-1/2 left-10 bg-custom-skyblue border border-transparent hover:border-custom-skyblue hover:bg-transparent size-[60px] max-lg:size-11 flex items-center justify-center cursor-pointer duration-300 ease-linear rotate-180 prev-arrow
-       rounded-full"
+        className={`absolute top-1/2 max-xl:bottom-[8%] max-xl:left-[42%] max-md:bottom-[3%] max-md:left-[36%] max-xl:top-auto max-xl:-translate-y-0 -translate-y-1/2 left-10 bg-custom-skyblue border border-transparent hover:border-custom-skyblue hover:bg-transparent size-[60px] max-lg:size-11 flex items-center justify-center cursor-pointer duration-300 ease-linear rotate-180 prev-arrow
+       rounded-full ${blogCard.length <= 0 ? "hidden" : ""}`}
       >
         <SwiperArrowIcon />
       </div>
       {blogCard.length === 0 ? (
-        <p>Data not found</p>
+        <p className="text-center text-3xl text-red-500">Data not found</p>
       ) : (
         <Swiper
           modules={[Navigation]}

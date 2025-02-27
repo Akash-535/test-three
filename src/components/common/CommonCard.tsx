@@ -60,7 +60,7 @@ const CommonCard = ({
             <Image
               width={50}
               height={50}
-              className="max-w-[50px] object-cover"
+              className="max-w-[50px] object-cover rounded-full"
               src={authorImg}
               alt="author image"
             />

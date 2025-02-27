@@ -16,8 +16,12 @@ const BlogCards = () => {
 
   useEffect(() => {
     const param = searchParams.get("page");
+    const searchParam = searchParams.get("search");
     if (param) {
       setOpen(parseInt(param) * 3);
+    }
+    if (searchParam) {
+      setSearch(searchParam);
     }
   }, [searchParams]);
 
@@ -29,10 +33,23 @@ const BlogCards = () => {
     const nextPage = open < ARTICLES_CARD_LIST.length ? open / 3 + 1 : 2;
     setOpen(nextPage * 3);
     nProgress.start();
-    window.history.pushState(null, "", `blogs?page=${nextPage}`);
+
+    const searchQuery = search ? `&search=${search}` : "";
+    window.history.pushState(null, "", `/blogs?page=${nextPage}${searchQuery}`);
+
     setTimeout(() => {
       nProgress.done();
     }, 400);
+  };
+
+  const handleSearchChange = (e: any) => {
+    const value = e.target.value;
+    setSearch(value);
+
+    const pageParam = searchParams.get("page")
+      ? `&page=${searchParams.get("page")}`
+      : "";
+    window.history.pushState(null, "", `/blogs?search=${value}${pageParam}`);
   };
 
   return (
@@ -44,7 +61,8 @@ const BlogCards = () => {
         <input
           type="text"
           id="search"
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={handleSearchChange}
+          value={search}
           placeholder="Search"
           className="bg-transparent outline-none placeholder:text-white placeholder:opacity-80 text-white opacity-80 placeholder:leading-6 leading-6"
         />
@@ -72,7 +90,7 @@ const BlogCards = () => {
         <CustomButton
           myOnclick={handleShowMore}
           myClass={`py-[15px] px-6 border rounded-full bg-custom-skyblue text-center hover:text-custom-skyblue hover:bg-transparent ${
-            ARTICLES_CARD_LIST.length <= 0 && "hidden"
+            ARTICLES_CARD_LIST.length <= 1 && "hidden"
           }`}
           text={
             open < ARTICLES_CARD_LIST.length

@@ -18,8 +18,8 @@ const MarketInsights = () => {
 
   const newBlogs: any = blogArray.length ? blogArray[0] : null;
   return (
-    <div className="pb-[190px] relative max-xl:pb-40 max-lg:pb-32 max-md:pb-24 max-sm:pb-16">
-      <div className="flex relative container mx-auto w-full justify-between">
+    <div className="pb-[190px] relative max-xl:pb-40 max-lg:pb-32 max-md:pb-24 max-sm:pb-16 max-w-[1140px] mx-auto">
+      <div className="flex relative max-w-[1140px] mx-auto w-full justify-center gap-28">
         <div>
           <h2 className="text-white leading-[58px] text-5xl font-normal max-w-[450px] max-lg:text-3xl max-md:text-2xl max-lg:text-center max-lg:mx-auto">
             What are AI-Driven{" "}
@@ -89,7 +89,7 @@ const MarketInsights = () => {
             <Image
               width={50}
               height={50}
-              className="object-cover max-w-[50px]"
+              className="object-cover max-w-[50px] rounded-full min-h-[50px]"
               src={newBlogs.authorImg}
               alt="darell image"
             />

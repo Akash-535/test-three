@@ -46,17 +46,13 @@ const Navbar = () => {
                 onMouseEnter={() => obj.dropDown && setDropdownOpen(true)}
                 onMouseLeave={() => obj.dropDown && setDropdownOpen(false)}
                 onClick={() => {
-                  {
-                    setOpen(!open);
-                  }
-                  {
-                    activeHandler(i);
-                  }
+                  setOpen(!open);
+                  activeHandler(i);
                 }}
-                className={`cursor-pointer text-base leading-[19.36px] duration-300 ease-linear opacity-70 font-normal flex items-center ${
+                className={`cursor-pointer text-base leading-[19.36px] duration-300 ease-linear font-bold flex items-center ${
                   active === i
                     ? "text-custom-skyblue opacity-100"
-                    : "text-white"
+                    : "text-white opacity-70"
                 }`}
               >
                 {obj.title}

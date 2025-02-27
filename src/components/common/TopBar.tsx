@@ -4,11 +4,11 @@ import Marquee from "react-fast-marquee";
 
 const TopBar = () => {
   return (
-    <div className="w-full bg-custom-skyblue flex items-center py-[18px] overflow-hidden gap-[60px]">
+    <div className="w-full bg-custom-skyblue flex items-center py-[18px] overflow-hidden">
       <Marquee pauseOnHover={true}>
-        <div className="w-full items-center gap-[60px] flex justify-center">
+        <div className="w-full items-center flex justify-center">
           {TOP_BAR_LIST.map((obj, i) => (
-            <div key={i} className="flex items-center gap-2">
+            <div key={i} className="flex items-center gap-2 ml-[60px]">
               <p className="text-base font-normal leading-[19.36px]">
                 {obj.title}
               </p>
